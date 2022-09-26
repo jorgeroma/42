@@ -19,8 +19,8 @@ int main(){
 	// ft_putnbr_fd(-21473648, 1);
 	// ft_putendl_fd("hola que tal", 1);
 	// ft_putendl_fd("hola que tal", 1);
-	char b[] = "hola que tal ";
-	char **a = ft_split(b, ' ');
+	char b[] = "que tal tal ";
+	char **a = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
 		// printf("%s\n", a[1]);
 	int i = 0;
 	while (a[i] != NULL)
