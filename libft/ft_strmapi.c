@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 16:24:51 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/09/27 19:34:02 by jorgerod         ###   ########.fr       */
+/*   Created: 2022/09/27 18:56:27 by jorgerod          #+#    #+#             */
+/*   Updated: 2022/09/27 19:35:08 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	ft_strjoin:
-		Returns a concatenation of strings s1 and s2.
+	ft_strmapi:
+		Maps a function f to each character from a copy of s.
 */
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		len;
-	char	*cat;
+	unsigned int	i;
+	char			*ptr;
 
-	if (!s1 || !s2)
+	i = 0;
+	ptr = ft_strdup(s);
+	if (!ptr)
 		return (NULL);
-	len = ft_strlen(s1);
-	len += ft_strlen(s2);
-	cat = (char *)ft_calloc((len + 1), sizeof(char));
-	if (!cat)
-		return (NULL);
-	ft_strlcat(cat, s1, len + 1);
-	ft_strlcat(cat, s2, len + 1);
-	cat[len] = '\0';
-	return (cat);
+	while (ptr[i])
+	{
+		ptr[i] = (*f)(i, ptr[i]);
+		i++;
+	}
+	return (ptr);
 }

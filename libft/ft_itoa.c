@@ -1,6 +1,21 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/27 18:32:59 by jorgerod          #+#    #+#             */
+/*   Updated: 2022/09/27 19:29:37 by jorgerod         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+	ft_itoa:
+		Given an integer returns a string with the number.
+*/
 
 static int	ft_itoa_len(int n)
 {
@@ -33,21 +48,20 @@ char	*ft_itoa(int n)
 	int		len;
 	char	*out;
 
+	if (n <= -2147483648)
+		return (ft_strdup("-2147483648"));
 	pos = 0;
 	len = ft_itoa_len(n);
-	if (n == -2147483648)
-		return ("-2147483648");
-	out = calloc(1 + len, sizeof(int));
-	if (!out)
+	out = ft_calloc(len + 1, sizeof(char));
+	if (out == NULL)
 		return (NULL);
 	if (n < 0)
 	{
 		out[0] = '-';
 		pos++;
-		n *= -1; 
+		n *= -1;
 	}
-
 	ft_itoa_rec(n, out, len - 1);
-
+	out[len] = '\0';
 	return (out);
 }

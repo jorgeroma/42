@@ -6,13 +6,18 @@
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:18:24 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/09/26 20:16:00 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/09/27 19:32:13 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_split_count(char const *s, char c)
+/*
+	ft_split:
+		Splits a given string by the delimiter c.
+		Returns an array of strings.
+*/
+static int	ft_split_count(char const *s, char c)
 {
 	int	words;
 	int	bw;
@@ -36,7 +41,7 @@ int	ft_split_count(char const *s, char c)
 	return (words);
 }
 
-char	*ft_split_get_word(char *s, char c, int *i)
+static char	*ft_split_get_word(char *s, char c, int *i)
 {
 	int		start;
 	int		count;
