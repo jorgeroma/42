@@ -7,25 +7,35 @@
  #include <stdlib.h>
  #include <ctype.h>
 
-void ft_algop(unsigned int i, char *c)
+void	ft_del(void *content)
 {
-	*c = *c + i;
+	free(content);
+}
+void	ft_print_result(t_list *elem)
+{
+	write(1, elem->content, strlen(elem->content));
 }
 
 int main(){
-	char a[] = "";
-	// char b[] = ";ajbsdj";
-	// char a[] = "	 \n \t  -2147483649";
-	// printf("%d\n", atoi(a));
-	// char *a = (char *)ft_calloc(0, sizeof(char));
-	// char *b = ft_strdup(a);
-	ft_striteri(a, ft_algop);
-	
-	// printf("%s\n", ft_itoa(-21483647));
-	// printf("%s.\n", ft_strtrim("", ""));
-	// ft_putnbr_fd(-21473648, 1);
-	// ft_putendl_fd("hola que tal", 1);
-	// ft_putendl_fd("hola que tal", 1);
-		// printf("%s\n", a[1]);
-	
+	t_list		*elem;
+	t_list		*elem2;
+	t_list		*elem3;
+	t_list		*elem4;
+	char		*str =  ft_strdup("lorem");
+	char		*str2 = ft_strdup("ipsum");
+	char		*str3 = ft_strdup("dolor");
+	char		*str4 = ft_strdup("sit");
+
+	elem = ft_lstnew(str);
+	elem2 = ft_lstnew(str2);
+	elem3 = ft_lstnew(str3);
+	elem4 = ft_lstnew(str4);
+	if (!elem || !elem2 || !elem3 || !elem4)
+		return (0);
+	elem->next = elem2;
+	elem2->next = elem3;
+	elem3->next = elem4;
+
+	ft_lstdelone(elem, ft_del);
+	ft_print_result(elem);
 }
