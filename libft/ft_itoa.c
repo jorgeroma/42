@@ -6,17 +6,19 @@
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 18:32:59 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/09/27 19:29:37 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/09/28 18:14:34 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	ft_itoa:
-		Given an integer returns a string with the number.
-*/
-
+/**
+ * @brief Finds the number of elements needed to represent
+ * 			a number.
+ * 
+ * @param n Input number.
+ * @return int Number of elements needed.
+ */
 static int	ft_itoa_len(int n)
 {
 	int	l;
@@ -35,6 +37,14 @@ static int	ft_itoa_len(int n)
 	return (l);
 }
 
+/**
+ * @brief Recursive function that fills an array with
+ * 			the corresponding digit on each position.
+ * 
+ * @param n Full number to fill the string with.
+ * @param out String it is going to fill.
+ * @param pos Specific position of out it is goin to fill.
+ */
 static void	ft_itoa_rec(int n, char *out, int pos)
 {
 	if (n > 9)
@@ -42,6 +52,12 @@ static void	ft_itoa_rec(int n, char *out, int pos)
 	out[pos] = (n % 10) + 48;
 }
 
+/**
+ * @brief Given an integer returns a string with the number.
+ * 
+ * @param n Input number.
+ * @return char* Pointer to string containing the number.
+ */
 char	*ft_itoa(int n)
 {
 	int		pos;

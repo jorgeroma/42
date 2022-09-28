@@ -6,16 +6,15 @@
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 19:05:45 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/09/23 15:11:24 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/09/28 18:13:20 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-	ft_bzero:
-		Fills n spaces of s with '\0'.
-*/
 #include "libft.h"
-
+/**
+ * @brief Fills n spaces of s with '\0'.
+ * 
+ */
 void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;

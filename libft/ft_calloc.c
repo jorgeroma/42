@@ -6,16 +6,19 @@
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 15:39:48 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/09/23 16:08:26 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/09/28 18:13:25 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	ft_calloc:
-		Allocates a memory space defined by count and size;
-*/
+/**
+ * @brief Allocates a memory space defined by count and size.
+ * 
+ * @param count Number of positions.
+ * @param size Size of element type.
+ * @return void* Pointer to the allocated memmory.
+ */
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;

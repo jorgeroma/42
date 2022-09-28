@@ -6,19 +6,25 @@
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 15:07:52 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/09/23 15:31:28 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/09/28 18:54:17 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	ft_strlcat:
-		Concatenates dst and src string.
-		If dstsize is smaller than dst length, the return value
-		is the sum of dstsize + src legth,
-		else the return value is the sum of dst and src legnths.
-*/
+/**
+ * @brief Concatenates dst and src string.
+ *		If dstsize is smaller than dst length, the return value
+ *		is the sum of dstsize + src legth,
+ *		else the return value is the sum of dst and src legnths.
+ * 
+ * @param dst Destiny string
+ * @param src Source string
+ * @param dstsize Size of destiny
+ * @return size_t If dstsize is smaller than dst length, the return value
+ *			is the sum of dstsize + src legth,
+ *			else the return value is the sum of dst and src legnths.
+ */
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;

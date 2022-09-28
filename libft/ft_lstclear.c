@@ -6,32 +6,29 @@
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 20:51:30 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/09/27 21:01:08 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/09/28 18:14:53 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * @brief Clears the list from a given pointer.
+ * 
+ * @param lst List it is going to delete.
+ * @param del Funtion used to delete the content of each node.
+ */
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*tmp;
-	t_list	*current;
+	t_list	*next;
 
 	if (lst && *lst)
 	{
-		current = *lst;
-		if (!(current -> next))
-			ft_lstdelone(current, del);
-		else
-		{
-			while (current -> next)
-			{
-				tmp = current;
-				current = tmp -> next;
-				ft_lstdelone(tmp, del);
-			}
+		while (*lst)
+		{	
+			next = (*lst)-> next;
+			ft_lstdelone((*lst), del);
+			(*lst) = next;
 		}
 	}
-	*lst = NULL;
-	lst = NULL;
 }

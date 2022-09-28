@@ -6,19 +6,25 @@
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 15:45:18 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/09/23 18:43:51 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/09/28 19:02:22 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	ft_strcmp:
-		Compares s1 and s2 until a different character is found.
-		if they are equal 0 is returned,
-		if s1 is greater 1 is returned and
-		if s2 is greater -1 is returned.
-*/
+/**
+ * @brief Compares s1 and s2 until a different character is found.
+ *			If they are equal 0 is returned,
+ *			if s1 is greater 1 is returned and
+ *			if s2 is greater -1 is returned.
+ * 
+ * @param s1 String one
+ * @param s2 String two
+ * @param n Number of elements to compare.
+ * @return int If they are equal 0 is returned,
+ *			if s1 is greater 1 is returned and
+ *			if s2 is greater -1 is returned.
+ */
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned char	*p1;

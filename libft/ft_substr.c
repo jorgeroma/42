@@ -6,16 +6,20 @@
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:09:51 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/09/26 18:14:28 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/09/28 19:21:54 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	ft_substr:
-		Returns a copy of a substring from s, delimited by start and len.
-*/
+/**
+ * @brief Returns a copy of a substring from s, delimited by start and len.
+ * 
+ * @param s Source string
+ * @param start Start index
+ * @param len End index
+ * @return char* Resoult string
+ */
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sbtr;

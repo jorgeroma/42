@@ -6,16 +6,19 @@
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:24:51 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/09/27 19:34:02 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/09/28 18:46:28 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	ft_strjoin:
-		Returns a concatenation of strings s1 and s2.
-*/
+/**
+ * @brief Returns a concatenation of strings s1 and s2.
+ * 
+ * @param s1 String one.
+ * @param s2 String two.
+ * @return char* String concatenating s1 and s2.
+ */
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		len;

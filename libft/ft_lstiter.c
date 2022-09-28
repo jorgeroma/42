@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 20:41:56 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/09/28 18:14:57 by jorgerod         ###   ########.fr       */
+/*   Created: 2022/09/28 16:23:10 by jorgerod          #+#    #+#             */
+/*   Updated: 2022/09/28 18:15:00 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
- * @brief Deletes one element and shifts list left.
+ * @brief Applies a funtion to each element's content.
  * 
- * @param lst Element wich is being deleted.
- * @param del Function used to delete element.
+ * @param lst List it is goint to modify.
+ * @param f Function applied to the content of a node.
  */
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	(del)(lst -> content);
-	free(lst);
+	while (lst)
+	{
+		(f)(lst -> content);
+		lst = lst -> next;
+	}
 }

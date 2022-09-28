@@ -6,18 +6,22 @@
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 16:21:46 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/09/23 15:37:51 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/09/28 19:04:05 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	ft_strnstr:
-		Looks for the string needle in the len first characters
-		of haystack, if is not found returns null, if it's found
-		return a pointer to where needle begins in haystack.
-*/
+/**
+ * @brief Looks for the string needle in the len first characters
+ *			of haystack, if is not found returns null, if it's found
+ *			return a pointer to where needle begins in haystack.
+ * 
+ * @param haystack String where it is goint to search
+ * @param needle String looking for.
+ * @param len Number of elements where it is goint to look for.
+ * @return char* Pointer to the first element of needle found.
+ */
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;

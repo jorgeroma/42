@@ -6,7 +6,7 @@
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 19:34:36 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/09/23 15:21:27 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/09/28 18:19:32 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,17 @@
 		and a pointer to dst is returned.
 		This function controls overlap.
 */
+
+/**
+ * @brief n elements from src are copied to dst,
+ *			and a pointer to dst is returned.
+ *			This function controls overlap.
+ * 
+ * @param dst Origin array.
+ * @param src Source array.
+ * @param n Number of elements to copy.
+ * @return void* Pointer to dst.
+ */
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t	i;

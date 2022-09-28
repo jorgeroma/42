@@ -6,16 +6,18 @@
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:02:27 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/09/23 16:09:12 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/09/28 18:45:18 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	ft_strdup:
-		Creates a copy of src, allocating the necessary space in memory.
-*/
+/**
+ * @brief Creates a copy of src, allocating the necessary space in memory.
+ * 
+ * @param src Source string
+ * @return char* Pointer to the string copy.
+ */
 char	*ft_strdup( const char *src )
 {
 	int		len;

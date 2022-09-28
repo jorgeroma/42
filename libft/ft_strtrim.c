@@ -6,17 +6,20 @@
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 18:46:39 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/09/27 19:37:12 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/09/28 19:07:31 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	ft_strtrim:
-		Returns a copy of s1 with characters appearing en set from
-		in the extrems trimmed.
-*/
+/**
+ * @brief Returns a copy of s1 with characters appearing en set from
+ *			in the extrems trimmed.
+ * 
+ * @param s1 Source string
+ * @param set Set of elements to trim.
+ * @return char* Resoult string.
+ */
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	int	start;

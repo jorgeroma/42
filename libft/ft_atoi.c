@@ -6,16 +6,17 @@
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 14:21:23 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/09/23 15:10:07 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/09/28 18:13:10 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-	ft_atoi:
-		Given a char array with any characters of is_space,
-		an option '+' or '-' and a sequence of numbers
-		converts it to an integer.
-*/
+/**
+ * @brief Given a char array with any characters of is_space,
+ *			an option '+' or '-' and a sequence of numbers
+ *			converts it to an integer.
+ * @param str String containing a number.
+ * @return int Number contained in str.
+ */
 int	ft_atoi(const char *str)
 {
 	int	sign;
