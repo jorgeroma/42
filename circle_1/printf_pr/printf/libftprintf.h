@@ -6,12 +6,15 @@
 /*   By: jorgerod <jorgerod@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 18:38:08 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/09/29 18:43:18 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/09/29 18:57:26 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef		LIBFTPRINTF_H
 # define	LIBFTPRINTF_H
+
+// Variadic functions
+#include <stdarg.h>
 
 # include "libft/libft.h"
 
