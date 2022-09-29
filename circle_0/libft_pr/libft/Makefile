@@ -41,5 +41,3 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all clean fclean re bonus
-
-# compilar main: >$ gcc main.c libft.a
