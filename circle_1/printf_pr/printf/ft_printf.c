@@ -39,31 +39,45 @@ static int	count_params(const char *str)
 	return (n_params);
 }
 
+static void ft_match_case(va_list *ptr, char c)
+{
+	if (c == 'd')
+		ft_putnbr_fd(va_arg(*ptr, int),1);
+	else if (c == 'c')
+		ft_putchar_fd(va_arg(*ptr, int),1);
+	else if (c == 's')
+		ft_putstr_fd(va_arg(*ptr, char *),1);
+
+}
+
+static void	ft_match(va_list *ptr, char **str)
+{
+	(*str)++;
+	while (**str && **str == ' ')
+		(*str)++;
+	if (ft_strchr("cspdiluxX%", **str))
+	{
+		ft_match_case(ptr, **str);
+		(*str)++;
+	}
+}
+
 int	ft_printf(const char *str, ...)
 {
-	int		params;
-	int		counter;
 	va_list	ptr;
 
-	params = count_params(str);
-	counter = 0;
 	va_start(ptr, str);
-	while (str)
+	while (*str)
 	{
-		if (str == '%')
+		if (*str == '%')
+			ft_match(&ptr, (char **)&str);
+		else
 		{
-			// str += 2;
-			ft_putnbr_fd(va_arg(ptr, int),1);
-			write(1,"\n",1);
-			counter++;
-		}else
-		{
-			ft_putchar_fd(str, 1);
+			ft_putchar_fd(*str, 1);	
+			str++;
 		}
-		str++;
 	}
 	va_end(ptr);
-	// printf("%s\n", str);
 	return (count_params(str));	
 }
 
