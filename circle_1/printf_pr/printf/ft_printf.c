@@ -41,12 +41,28 @@ static int	count_params(const char *str)
 
 static void ft_match_case(va_list *ptr, char c)
 {
-	if (c == 'd')
-		ft_putnbr_fd(va_arg(*ptr, int),1);
-	else if (c == 'c')
+	if (c == 'c')
 		ft_putchar_fd(va_arg(*ptr, int),1);
 	else if (c == 's')
 		ft_putstr_fd(va_arg(*ptr, char *),1);
+	else if (c == 'p')
+		ft_putptr_fd(va_arg(*ptr, void *),1);
+	else if (c == 'd')
+		ft_putnbr_fd(va_arg(*ptr, int),1);
+	else if (c == 'i')
+		ft_putstr_fd(va_arg(*ptr, char *),1);
+	else if (c == 'l')
+		ft_putstr_fd(va_arg(*ptr, char *),1);
+	else if (c == 'u')
+		ft_putstr_fd(va_arg(*ptr, char *),1);
+	else if (c == 'x')
+		ft_putstr_fd(va_arg(*ptr, char *),1);
+	else if (c == 'X')
+		ft_putstr_fd(va_arg(*ptr, char *),1);
+	else if (c == '%')
+		ft_putchar_fd('%',1);
+	
+	
 
 }
 

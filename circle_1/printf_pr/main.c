@@ -6,7 +6,8 @@
 
 int main()
 {
-	ft_printf("Hola esto es: %    d, y esto una letra: %c\nEsto una cadena: %s\n", 7, 'j', "abc");
-	printf("%d %i\n", 1.23, 1.2);
+	double a = 77;
+	ft_printf("%p %d, %d\n", &a, 0x123, 0123);
+	printf("\n%p %i %%\n", &a, 0123);
 	// printf("%d", ft_printf("%d", 7));
 }
