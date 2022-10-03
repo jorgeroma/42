@@ -1,4 +1,4 @@
-SRCS	=	ft_printf.c
+SRCS	=	ft_printf.c ft_putptr_fd.c
 
 OBJS	=	${SRCS:.c=.o}
 
@@ -8,24 +8,25 @@ NAME	=	libftprintf.a
 
 CC		=	cc
 
-AR		=	ar cr
+AR		=	ar crs
 
 RM		=	rm -f
 
 CFLAGS	=	-Wall -Werror -Wextra
 
-LIBFT	=	make -C libft
+LIBFT	=	make -C ./libft
 
-LIB_CL	=	make -C libft clean
+LIB_CL	=	make -C ./libft clean
 
-LIB_FC	=	make -C libft fclean
+LIB_FC	=	make -C ./libft fclean
 
 .c.o:
 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 			${LIBFT}
-			${AR} ${NAME} ${OBJS}
+			cp ./libft/libft.a $(NAME)
+			${AR} ${NAME} ${OBJS} 
 
 all:		${NAME}
 
