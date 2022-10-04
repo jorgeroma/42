@@ -39,10 +39,10 @@
 // 	return (n_params);
 // }
 
-int ft_int_length(int n)
+int	ft_int_length(int n)
 {
 	int	i;
-	
+
 	i = 0;
 	if (n == 0)
 		return (1);
@@ -52,57 +52,70 @@ int ft_int_length(int n)
 		n /= 10;
 	}
 	return (i);
-	
 }
 
-static void ft_match_case(va_list *ptr, char c, int *counter)
+static void	ft_match_case_exted(va_list *ptr, char c, int *counter)
 {
-	char	*s;
-	int		n;
+	int	n;
 
-	if (c == 'c')
-	{
-		ft_putchar_fd(va_arg(*ptr, int),1);
-		(*counter)++;
-	}
-	else if (c == 's')
-	{
-		s = va_arg(*ptr, char *);
-		ft_putstr_fd(s, 1);
-		(*counter) += ft_strlen(s);
-	}
-	else if (c == 'p')
-		ft_putptr_fd(va_arg(*ptr, void *),1, 0, 1);
-	else if (c == 'd')
+	if (c == 'd')
 	{
 		n = va_arg(*ptr, int);
-		ft_putnbr_fd(n,1);
+		ft_putnbr_fd(n, 1);
 		(*counter) += ft_int_length(n);
-
 	}
 	else if (c == 'i')
 	{
 		n = va_arg(*ptr, int);
-		ft_putnbr_fd(n,1);
+		ft_putnbr_fd(n, 1);
 		(*counter) += ft_int_length(n);
-
 	}
 	else if (c == 'u')
 	{
 		n = va_arg(*ptr, int);
-		ft_putnbr_fd(n,1);
+		ft_putnbr_fd(n, 1);
 		(*counter) += ft_int_length(n);
-
 	}
-	else if (c == 'x')
-		ft_putptr_fd(va_arg(*ptr, void *),1, 0, 0);
-	else if (c == 'X')
-		ft_putptr_fd(va_arg(*ptr, void *),1, 1, 0);
-	else if (c == '%')
-		ft_putchar_fd('%',1);
-	
-	
+}
 
+static void	ft_match_case_s(va_list *ptr, int *counter)
+{
+	char	*s;
+
+	s = va_arg(*ptr, char *);
+	ft_putstr_fd(s, 1);
+	(*counter) += ft_strlen(s);
+}
+
+static void	ft_match_case(va_list *ptr, char c, int *counter)
+{
+	if (c == 'c')
+	{
+		ft_putchar_fd(va_arg(*ptr, int), 1);
+		(*counter)++;
+	}
+	else if (c == 's')
+		ft_match_case_s(ptr, counter);
+	else if (c == 'p')
+		ft_putptr_fd(va_arg(*ptr, void *), counter, 0, 1);
+	else if (c == 'x')
+		ft_putptr_fd(va_arg(*ptr, void *), counter, 0, 0);
+	else if (c == 'X')
+		ft_putptr_fd(va_arg(*ptr, void *), counter, 1, 0);
+	else if (c == '%')
+	{
+		(*counter)++;
+		ft_putchar_fd('%', 1);
+	}
+	else
+		ft_match_case_exted(ptr, c, counter);
+}
+
+static int	ft_check_space(char *str)
+{
+	while (*str == ' ')
+		str++;
+	return (*str == 'p' || *str == 'd' || *str == 'i');
 }
 
 static void	ft_match(va_list *ptr, char **str, int *counter)
@@ -110,8 +123,11 @@ static void	ft_match(va_list *ptr, char **str, int *counter)
 	(*str)++;
 	if (**str == ' ')
 	{
-		write(1, " ", 1);
-		(*counter)++;
+		if (ft_check_space(*str))
+		{
+			write(1, " ", 1);
+			(*counter)++;
+		}
 	}
 	while (**str && **str == ' ')
 		(*str)++;
@@ -141,6 +157,5 @@ int	ft_printf(const char *str, ...)
 		}
 	}
 	va_end(ptr);
-	return (counter);	
+	return (counter);
 }
-
