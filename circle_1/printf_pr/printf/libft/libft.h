@@ -6,7 +6,7 @@
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:05:47 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/09/28 19:28:45 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/10/05 13:56:58 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
-void			ft_putnbr_fd(int n, int fd);
+void			ft_putnbr_fd(long int n, int fd);
 
 // ------ LIST ------
 t_list			*ft_lstnew(void *content);

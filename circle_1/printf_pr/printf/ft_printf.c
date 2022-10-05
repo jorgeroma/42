@@ -6,7 +6,7 @@
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 18:29:27 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/10/03 21:14:52 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/10/05 14:48:09 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,15 @@
 // 	return (n_params);
 // }
 
-int	ft_int_length(int n)
+int	ft_int_length(long long int n)
 {
 	int	i;
 
 	i = 0;
 	if (n == 0)
 		return (1);
+	if (n < 0)
+		i++;
 	while (n != 0)
 	{
 		i++;
@@ -56,7 +58,8 @@ int	ft_int_length(int n)
 
 static void	ft_match_case_exted(va_list *ptr, char c, int *counter)
 {
-	int	n;
+	long long int	n;
+	unsigned long long int un;
 
 	if (c == 'd')
 	{
@@ -72,7 +75,8 @@ static void	ft_match_case_exted(va_list *ptr, char c, int *counter)
 	}
 	else if (c == 'u')
 	{
-		n = va_arg(*ptr, int);
+		un = va_arg(*ptr, unsigned int);
+		n = un;
 		ft_putnbr_fd(n, 1);
 		(*counter) += ft_int_length(n);
 	}
@@ -83,8 +87,16 @@ static void	ft_match_case_s(va_list *ptr, int *counter)
 	char	*s;
 
 	s = va_arg(*ptr, char *);
-	ft_putstr_fd(s, 1);
-	(*counter) += ft_strlen(s);
+	if (s)
+	{
+		ft_putstr_fd(s, 1);
+		(*counter) += ft_strlen(s);
+	}
+	else
+	{
+		write(1, "(null)", 6);
+		(*counter) += 6;
+	}
 }
 
 static void	ft_match_case(va_list *ptr, char c, int *counter)

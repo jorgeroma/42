@@ -6,7 +6,7 @@
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:38:12 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/09/28 18:25:33 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/10/05 13:57:08 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * @param n Number to write.
  * @param fd File descriptor.
  */
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(long int n, int fd)
 {
 	char	c;
 
