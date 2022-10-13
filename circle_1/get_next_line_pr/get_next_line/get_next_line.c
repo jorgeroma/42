@@ -27,24 +27,39 @@ int ft_search (char *str, char c)
 
 char	*get_next_line(int fd)
 {
-	static char	*buff;
+	char		*buff;
+	static char	*remain;
 	char		*str;
 	int			i;
+	int			status;
 
 	buff = malloc(BUFFER_SIZE * sizeof(char));
-	read(fd, buff, BUFFER_SIZE);
-		printf("\n%s\n", buff);
+	if (!buff)
+		return (NULL);
+
+	str = NULL;
 	i = -1;
-	// while (i < 0)
-	// {
-	// 	if (read(fd, buff, BUFFER_SIZE) < 0)
-	// 		return (NULL);
-		
-	// 	printf("\n%s\n", buff);
-	// 	str = ft_strjoin(str, buff);
-		
-	// 	i = ft_search(buff, '\n');
-	// }
+	if (remain)
+	{
+		str = ft_strjoin(NULL, remain);
+		i = ft_search(remain, '\n');
+		remain = remain + i + 1;
+	}
+	while (i < 0)
+	{
+		status = read(fd, buff, BUFFER_SIZE);
+		if (status < 0)
+			return (NULL);
+		printf("\nStatus: %s\n", buff);
+		str = ft_strjoin(str, buff);
+		i = ft_search(buff, '\n');
+		if (status == 0)
+			i = ft_search(buff, '\0');
+	}
+	if (buff)
+	{
+		remain = ft_strjoin(remain, buff + i + 1);
+	}
 	i = 0;
 	while (str[i] && str[i ] != '\n')
 		i++;
