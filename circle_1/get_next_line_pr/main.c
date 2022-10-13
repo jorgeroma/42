@@ -10,15 +10,15 @@ int main(){
 
 	int	fd;
 	char *s;
+	// char *buff;
 
 	// buff = malloc(BUFFER_SIZE * sizeof(char));
 	fd = open("./prueba.txt", O_RDONLY);
 	// read(fd, buff, BUFFER_SIZE);
-	// printf("%s", buff);
+	// printf("%s\n", buff);
 	// read(fd, buff, BUFFER_SIZE);
-	// printf("%s", buff);
+	// printf("%c", *(buff + 5));
 	// read(fd, buff, BUFFER_SIZE);
-	// printf("%s", buff);
 	// s = get_next_line(fd);
 
 	// while (s)
@@ -28,8 +28,8 @@ int main(){
 	// }
 	// printf("%s", s);
 	printf("%s", get_next_line(fd));
-	// printf("%s", get_next_line(fd));
-	// printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
 	// ft_strjoin(NULL, "algo");
 	// printf("%s", get_next_line(fd));
 

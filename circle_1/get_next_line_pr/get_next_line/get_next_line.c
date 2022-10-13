@@ -33,6 +33,7 @@ char	*get_next_line(int fd)
 	int			i;
 	int			status;
 
+	status = 1;
 	buff = malloc(BUFFER_SIZE * sizeof(char));
 	if (!buff)
 		return (NULL);
@@ -45,21 +46,20 @@ char	*get_next_line(int fd)
 		i = ft_search(remain, '\n');
 		remain = remain + i + 1;
 	}
-	while (i < 0)
+	while (i < 0 && status > 0)
 	{
 		status = read(fd, buff, BUFFER_SIZE);
 		if (status < 0)
 			return (NULL);
-		printf("\nStatus: %s\n", buff);
 		str = ft_strjoin(str, buff);
-		i = ft_search(buff, '\n');
 		if (status == 0)
 			i = ft_search(buff, '\0');
+		else
+			i = ft_search(buff, '\n');
+		// printf("- I: %d\n", i);
 	}
 	if (buff)
-	{
 		remain = ft_strjoin(remain, buff + i + 1);
-	}
 	i = 0;
 	while (str[i] && str[i ] != '\n')
 		i++;
