@@ -27,9 +27,9 @@ int main(){
 	// 	s = get_next_line(fd);
 	// }
 	// printf("%s", s);
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
+	printf("%s\n", get_next_line(fd));
+	printf("%s\n", get_next_line(fd));
+	printf("%s\n", get_next_line(fd));
 	// ft_strjoin(NULL, "algo");
 	// printf("%s", get_next_line(fd));
 

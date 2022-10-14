@@ -6,7 +6,7 @@
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:00:44 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/10/14 20:07:05 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/10/14 20:09:51 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,5 @@ char	*get_next_line(int fd)
 	copy = ft_strjoin(NULL, str_array[fd]);
 	str_array[fd] = str_array[fd] + i + 1;
 	copy[i] = '\0';
-	if (ft_strlen(copy) <= 0)
-		return (NULL);
 	return (copy);
 }
