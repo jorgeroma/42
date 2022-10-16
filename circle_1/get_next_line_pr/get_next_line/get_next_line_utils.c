@@ -77,6 +77,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		len;
 	char	*cat;
 
+	len = 0;
 	if (!s2)
 		return (NULL);
 	if (s1)

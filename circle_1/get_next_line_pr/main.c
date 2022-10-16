@@ -9,9 +9,9 @@
 int main(){
 
 	int	fd;
-	char *s;
+	// char *s;
+	
 	// char *buff;
-
 	// buff = malloc(BUFFER_SIZE * sizeof(char));
 	fd = open("./prueba.txt", O_RDONLY);
 	// read(fd, buff, BUFFER_SIZE);
@@ -27,9 +27,16 @@ int main(){
 	// 	s = get_next_line(fd);
 	// }
 	// printf("%s", s);
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
+	// get_next_line(fd);
+	// get_next_line(fd);
+	// get_next_line(fd);
+	printf("PRINT:%s\n", get_next_line(fd));
+	printf("PRINT:%s\n", get_next_line(fd));
+	printf("PRINT:%s\n", get_next_line(fd));
+	printf("PRINT:%s\n", get_next_line(fd));
+	printf("PRINT:%s\n", get_next_line(fd));
+	// printf("%s\n", get_next_line(fd));
+	// printf("%s\n", get_next_line(fd));
 	// ft_strjoin(NULL, "algo");
 	// printf("%s", get_next_line(fd));
 

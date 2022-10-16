@@ -28,16 +28,6 @@ int ft_search (char *str, char c)
 	return (-1);
 }
 
-void prueba(char *str)
-{
-	int i = 0;
-	while (str[i])
-	{
-		printf("%c\n", str[i]);
-		i++;
-	}
-}
-
 int ft_get_line(int fd, char **str)
 {
 	char	*buff;
@@ -45,7 +35,9 @@ int ft_get_line(int fd, char **str)
 	int		status;
 
 	i = -1;
-	buff = (char *)malloc(BUFFER_SIZE * sizeof(char));
+	buff = (char *)ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	if (!buff)
+		return (-1);
 	while (i < 0)
 	{
 		status = read(fd, buff, BUFFER_SIZE);
@@ -54,31 +46,58 @@ int ft_get_line(int fd, char **str)
 		else if (status == 0)
 		{
 			i = ft_search(buff, '\0');
-			prueba(buff);
 		}
 		else
 			i = ft_search(buff, '\n');
+		buff[BUFFER_SIZE] = '\0';
 		*str = ft_strjoin(*str, buff);
+		printf("BUFF: %d\n", buff[0]);
 		ft_bzero(buff, BUFFER_SIZE);
 	}
 	free(buff);
 	return (status);
 }
 
+char	*ft_free_all(char **str)
+{
+	int i = 0;
+	while (i < 4096)
+	{
+		if (str[i])
+			free(str[i]);
+		i++;
+	}
+	return (NULL);
+}
+
 char	*get_next_line(int fd)
 {
-	static char	**str_array;
+	static char	*str_array[4096];
 	char		*copy;
 	int			i;
 	int			status;
 
-	str_array = (char **)ft_calloc(4096, sizeof(char *));
+	copy = NULL;
+	i = ft_search(str_array[fd], '\n');
+	if (i < 0 || !str_array[fd])
+	{
+		status = ft_get_line(fd, &str_array[fd]);
+		if (status < 0)
+			return (ft_free_all(str_array));
+		// else if (status == 0)
+		// 	printf("XXXXXXXXXXXX");
+	}
+	if (status == 0 && str_array[fd] == NULL)
+		return (NULL);
 	i = ft_search(str_array[fd], '\n');
 	if (i < 0)
-		ft_get_line(fd, &str_array[fd]);
-	i = ft_search(str_array[fd], '\n');
-	copy = ft_strjoin(NULL, str_array[fd]);
+		i = ft_search(str_array[fd], '\0');
+
+	// printf("\nSTR: %s\n", str_array[fd]);
+	copy = ft_strjoin(copy, str_array[fd]);
 	str_array[fd] = str_array[fd] + i + 1;
+	if (str_array[fd][0] == '\0')
+		str_array[fd] = NULL;
 	copy[i] = '\0';
 	return (copy);
 }
