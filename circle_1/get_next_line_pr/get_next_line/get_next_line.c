@@ -51,7 +51,7 @@ int ft_get_line(int fd, char **str)
 			i = ft_search(buff, '\n');
 		buff[BUFFER_SIZE] = '\0';
 		*str = ft_strjoin(*str, buff);
-		printf("BUFF: %d\n", buff[0]);
+		printf("BUFF: %d\n", ft_strlen(buff));
 		ft_bzero(buff, BUFFER_SIZE);
 	}
 	free(buff);
@@ -99,5 +99,7 @@ char	*get_next_line(int fd)
 	if (str_array[fd][0] == '\0')
 		str_array[fd] = NULL;
 	copy[i] = '\0';
+	if (ft_strlen(copy) == 0 && ft_strlen(str_array[fd]) == 0)
+		return (NULL);
 	return (copy);
 }
