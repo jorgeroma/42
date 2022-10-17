@@ -6,7 +6,7 @@
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:01:38 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/10/11 17:54:06 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/10/17 18:17:02 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
+	if (count * size == 0)
+		return (NULL);
 	ptr = (void *)malloc(count * size);
 	if (ptr)
 	{
