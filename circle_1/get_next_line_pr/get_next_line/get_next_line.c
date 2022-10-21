@@ -107,11 +107,11 @@ char	*get_next_line(int fd)
 		return (NULL);
 	status = ft_read(fd, &str_array[fd]);
 	if (status < 0)
-		return (NULL);
+		return (free(str_array[fd]), NULL);
 	else
 	{	
 		if (status == 0 && ft_strlen(str_array[fd]) == 0)
-			return (NULL);
+			return (free(str_array[fd]), NULL);
 		line = ft_line(&str_array[fd]);
 		str_array[fd] = ft_rest(&str_array[fd]);
 		return (line);
