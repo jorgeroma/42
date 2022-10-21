@@ -15,7 +15,7 @@
 unsigned int	ft_strlen(const char *s)
 {
 	size_t	len;
-	
+
 	if (s == NULL)
 		return (0);
 	len = 0;
@@ -76,7 +76,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	return (dlen + slen);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	int		len;
 	char	*cat;
@@ -89,10 +89,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	len += ft_strlen(s2);
 	cat = (char *)ft_calloc((len + 1), sizeof(char));
 	if (!cat)
-		return (NULL);
+		return (free(cat), NULL);
 	if (s1)
 		ft_strlcat(cat, s1, len + 1);
 	ft_strlcat(cat, s2, len + 1);
 	cat[len] = '\0';
+	free(s1);
 	return (cat);
 }
