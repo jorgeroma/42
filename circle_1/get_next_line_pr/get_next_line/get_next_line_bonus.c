@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 17:18:29 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/10/24 19:29:29 by jorgerod         ###   ########.fr       */
+/*   Updated: 2022/10/24 19:22:06 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	ft_gnl_search(char *str, char c)
 {
@@ -105,7 +105,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	int			status;
 
-	if (fd < 0 || fd > 4096 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > 4095 || BUFFER_SIZE <= 0)
 		return (NULL);
 	status = ft_read(fd, &str_array[fd]);
 	if (status < 0)
