@@ -10,6 +10,11 @@
 
 // void check_leaks();
 
+void prueba()
+{
+	system("leaks a.out");
+}
+
 int main(){
 
 	int	fd;
@@ -58,12 +63,16 @@ int main(){
 	// printf("%s", p);
 	// free(p);
 
+	// printf("%d\n", fd);
+	fd = open("./prueba.txt", O_RDONLY);
+	printf("%s", get_next_line(fd));
+	close(fd);
+	fd = open("./prueba.txt", O_RDONLY);
 	printf("%s", get_next_line(fd));
 	printf("%s", get_next_line(fd));
 	printf("%s", get_next_line(fd));
 	printf("%s", get_next_line(fd));
-	// printf("%s", get_next_line(fd));
-	// printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
 	// printf("%s", get_next_line(fd));
 	// printf("%s", get_next_line(fd));
 	// printf("%s", get_next_line(fd));
@@ -71,5 +80,5 @@ int main(){
 	// printf("%s", get_next_line(fd));
 
 
-	// check_leaks();
+	// atexit(prueba);
 }

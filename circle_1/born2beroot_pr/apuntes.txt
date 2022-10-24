@@ -1,0 +1,49 @@
+# Passw0rd42
+# Apparmor confina un programa y decide a que archivos puede 
+	y no puede acceder una aplicacion.
+
+hostnamectl						# comprobar sistema operativo
+
+cat /etc/group					# todos los grupos
+cat /etc/passwd					# todos los usuarios
+getent group <grupo>				# ver usuarios en un grupo
+groups <usuario>					# ver grupos de un usuario
+sudo groupadd <grupo>				# crear grupo
+sudo groupdel <grupo>				# eliminar grupo
+sudo adduser <usuario> <grupo>		# añadir usuario a un grupo
+sudo deluser <usuario> <grupo>		# eliminar usuario de un grupo
+
+id <usuario #|# groups <usuario>	# ver grupos de un usuario
+
+useradd <usuario>					# crear usuario
+⤷ passwd <usuario>				# definir contraseña del usuario
+userdel <usuario>					# eliminar usuario
+
+---------------------------------------------------------------------
+
+/etc/sudoers.d/config				# sudo configuracion
+/var/log/ssh/sudo					# log del sudo
+/var/log/ssh/sudo/sudo_log			# log del sudo
+
+/etc/ssh/sshd_config				# ssh configuracion
+sudo service ssh status			# comprobar el estado del ssh
+
+sudo ufw status					# comprobar el estado del ufw
+
+/etc/login.defs					# configuracion tiempo contraseña
+
+/etc/pam.d/common-password			# requisitos de contraseña
+
+sudo chage -l <usuario>			# ver cuando caduca la contraseña
+
+
+
+MariaDB
+user:	jorgerodb
+passwd:	Passw0rd42
+SHOW DATABASES;					# mostar las db
+mariadb -u jorgerodb -p			# iniciar mariadb con mi usuario
+
+
+FTP
+sudo systemctl status vsftpd	# comprobar estado
