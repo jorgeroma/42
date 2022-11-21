@@ -1,4 +1,4 @@
-SRCS	=	push_swap.c
+SRCS	=	push_swap_bones.c push_swap_functions.c push_swap.c
 
 OBJS	=	${SRCS:.c=.o}
 

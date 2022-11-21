@@ -5,50 +5,95 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorgerod <jorgerod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 16:40:04 by jorgerod          #+#    #+#             */
-/*   Updated: 2022/11/21 16:40:06 by jorgerod         ###   ########.fr       */
+/*   Created: 2022/11/21 19:40:18 by jorgerod          #+#    #+#             */
+/*   Updated: 2022/11/21 21:00:11 by jorgerod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_del(void *content)
+#include <stdio.h>
+char	*ft_replace(char **str, char *before, char after)
 {
-	free(content);
+	int		i;
+	int		size;
+	char	*str_copy;
+	
+	i = 0;
+	str_copy = ft_strdup(*str);
+	size = ft_strlen(before);
+	while (str_copy[i])
+	{	
+		if (ft_memchr(before, str_copy[i], size))
+			str_copy[i] = after;
+		i++;
+	}
+	return (str_copy);
 }
 
-void    ft_print_stk(t_list *stk)
+int	ft_all_digit(char *str)
 {
-    int tmp;
-    
-    ft_printf("[");
-    while (stk)
-    {
-        tmp = *((int *) (stk -> content));
-        ft_printf("%d", tmp);
-        if ((stk -> next))
-            ft_printf(" <- ");
-        stk = stk -> next;
-    }
-    ft_printf("]");
+	int	i;
+
+	i = 0;
+	if (str == NULL)
+		return (0);
+	while (str[i])
+	{
+		if (!ft_isdigit((int) str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
-void    swap(t_list **stk)
+int	*ft_parser(char **mtx, int *size)
 {
-    t_list  *tmp_elem;
-    void    *tmp_1;
-    void    *tmp_2;
-    int     i;
+	int	numbers;
+	int	*num_array;
 
-    if (ft_lstsize(*stk) >= 2)
-    {
-        tmp_elem = ft_lstlast(*stk);
-        tmp_1 = tmp_elem -> content;
-        i =  *((int *) (tmp_1));
-        ft_printf("%d", i);
-        ft_lstdelone(ft_lstlast(*stk), ft_del);
-        // tmp_elem = ft_lstlast(*stk);
-        // tmp_2 = tmp_elem -> content;
-        // ft_lstdelone(tmp_elem, ft_del);
-    }
+	numbers = 0;
+	while (ft_all_digit(mtx[numbers]))
+		numbers++;
+	if (mtx[numbers] == NULL)
+	{
+		num_array = (int *)ft_calloc(numbers + 1, sizeof(int));
+		if(!num_array)
+			return (NULL);
+		numbers = 0;
+		while (mtx[numbers])
+		{
+			num_array[numbers] = ft_atoi(mtx[numbers]);
+			numbers++;
+		}
+		*size = numbers;
+		return (num_array);
+		return NULL;
+	}
+	else
+		return (NULL);
+}
+
+int main(int argc, char *argv[])
+{	
+	int tam;
+	int	*arr;
+	int i = 0;
+	if (argc == 2)
+	{	
+		arr = ft_parser(ft_split(ft_replace(&argv[1], "\n\t", ' '), ' '), &tam);
+		while (i < tam)
+		{
+
+			printf("%d\n", arr[i]);
+			i++;
+		}
+		// ft_printf("%s", );
+	}
+	else if (argc > 1)
+	{
+		return (0);
+	}
+	else
+		ft_printf("Error.");
+	return 0;
 }
